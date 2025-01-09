@@ -1,0 +1,56 @@
+
+    ### laravel version: ^11.31
+    --------------------------------------------------
+
+    # config .env
+
+        1. set DB_CONNECTION=mysql
+        2. set SESSION_DRIVER=file
+
+
+    # create api
+
+        - php artisan install:api
+
+
+    # create helper
+
+        1. create folder Helpers inside app folder
+        2. create file Helper.php inside Helpers folder
+        3. in composer.json file, inside autoload: {} put "files": ["app/Helpers/Helper.php"]
+        4. in terminal run: composer dump-autoload
+
+
+    # seeder
+
+        1.  php artisan make:seed UserSeeder  // make seeder file
+        2.  php artisan db:seed --class=UserSeeder // to generate spesific file
+        3.  php artisan db:seed // generate
+
+
+    # artisan
+
+        - php artisan migrate:fresh
+        - php artisan make:listener AssignUserRole
+        - php artisan migrate:rollback
+
+
+    # reset storage:link
+
+        1. delete folder storage in publis atau rm -rf public/storage
+        2. php artisan storage:link
+        3. don't forget to change in .env file, APP_URL=http://127.0.0.1:8000
+
+        - php artisan migrate:fresh
+        - php artisan db:seed
+
+
+    # make migration to existing table
+
+        - php artisan make:migration add_fields_to_permissions_table --table=permissions
+
+
+    # terminal / ssh commands
+
+        - cp *.jpg ../../app/public/events -> assuming we are in dummy/events folder
+        - rm *.jpg /storage/app/public/events
