@@ -54,3 +54,8 @@
 
         - cp *.jpg ../../app/public/events -> assuming we are in dummy/events folder
         - rm *.jpg /storage/app/public/events
+
+    # common errors
+
+        !!  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long...
+        ??  add: Schema::defaultStringLength(191); in app/Providers/AppServiceProvider.php inside: public function boot(): void
